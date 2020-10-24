@@ -1,29 +1,53 @@
 /*
-* Author:Ronald Kibet
-* */
-fun main(args:Array<String>)
+
+*Author : Ronald Kibet
+*
+* Email :ronkibet2012@gmail.com
+*
+* WhatsUp Number : +254-754-00-00-20
+*
+*/
+//creating class Person
+open class Person (_ageOfUser:Int,_nameOfUser:String)
 {
-// input Number in array
-    val numbersArray = arrayOf(1,2,3,4,5,6,7,8,9,0)
+    //member variables of the class
 
-    //The list of input Numbers
-    val listOfNumbers = numbersArray.toList()
+    var ageOfUser:Int
+    var  nameOfUser:String
 
-    //The map of input Numbers
-    val inputValues = listOfNumbers.map { i->i }
+    //Initializer Block
+    init {
+        this.ageOfUser=_ageOfUser
+        this.nameOfUser=_nameOfUser
+    }
+    //member function
+    fun personDetails()
+    {
+        println("My Name Is $nameOfUser And I Am $ageOfUser Years Old")
+    }
+}
 
-    //the square of list of numbers
-    val squareOfInputValues =numbersArray.map { i: Int -> i*i }
+//create class Student that inherit from class person
+class Student(school:String) : Person (27,"Ronald")
+{
+    var mySchool:String
+    init {
+        this.mySchool=school
+    }
+    fun studentDetails(){
+        println("My Name Is $nameOfUser And I Am $ageOfUser Years Old And I am Studying in ${mySchool}chool")
+    }
+}
+fun main()
+{
+    val personObject =Person(27,"Ronald Kibet")
+    val studentDetails =Student("Jomo Kenyattaa University Of Science And Technology")
 
-    //mapping numbers to their square
-    val mapArrays=inputValues.zip(squareOfInputValues).toMap()
+    //Displaying Person Details
+    personObject.personDetails()
 
-    // Display the Input Values
-    println(inputValues)
+    //Displaying Student Details
+    studentDetails.studentDetails()
 
-    // Display Square of the Input Values
 
-    println(squareOfInputValues)
-    //Displaying the array of numbers and its square
-    println(mapArrays)
 }
